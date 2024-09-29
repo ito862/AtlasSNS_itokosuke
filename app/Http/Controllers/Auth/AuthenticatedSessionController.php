@@ -10,13 +10,25 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\View\View;
 
+
+
 class AuthenticatedSessionController extends Controller
 {
+
     /**
      * Display the login view.
      */
     public function create(): View
     {
+        return view('auth.login');
+    }
+
+
+    //ログアウト
+    public function logout(Request $request)
+    {
+        Auth::logout();
+
         return view('auth.login');
     }
 
@@ -31,5 +43,4 @@ class AuthenticatedSessionController extends Controller
 
         return redirect()->intended('top');
     }
-
 }

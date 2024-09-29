@@ -11,7 +11,8 @@ use Illuminate\View\View;
 
 class ProfileController extends Controller
 {
-    public function profile(){
+    public function profile()
+    {
         return view('profiles.profile');
     }
 }
