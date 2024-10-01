@@ -2,11 +2,16 @@
     <!-- 適切なURLを入力してください -->
     {!! Form::open(['url' => 'register']) !!}
 
-    @if(session('username'))
-    <div class="flash_username">
-        {{ session('username') }}
+    <!-- エラーメッセージ -->
+    if ($errors->any())
+    <div>
+        <ul>
+            @foreach ($errors->all() as $error)
+            <li>{{ $error }}</li>
+            @endforeach
+        </ul>
     </div>
-    @endif
+
 
     <h2>新規ユーザー登録</h2>
 

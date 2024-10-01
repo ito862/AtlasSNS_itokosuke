@@ -1,7 +1,7 @@
 <x-logout-layout>
   {!! Form::open(['url' => 'added']) !!}
   <div id="clear">
-    <p> {{ session()->get('username') }} さん</p>
+    <p> {{ $username }} さん</p>
     <p>ようこそ！AtlasSNSへ！</p>
     <p>ユーザー登録が完了しました。</p>
     <p>早速ログインをしてみましょう。</p>

@@ -37,7 +37,12 @@ class RegisteredUserController extends Controller
                 'username' => 'required|min:2|max:12',
                 'email' => 'required|email|min:5|max:40|unique:users',
                 'password' => 'required|alpha_num|min:8|max:20|confirmed',
+                //エラーメッセージ
+                'username.required' => 'ユーザーネームは必須です。',
+                'email.required' => 'メールアドレスは必須です。',
+                'password.required' => 'パスワードは必須です。',
             ]);
+
             $username = $request->input('username');
             $email = $request->input('email');
             $password = $request->input('password');
