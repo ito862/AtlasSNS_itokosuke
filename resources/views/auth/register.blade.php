@@ -1,9 +1,8 @@
 <x-logout-layout>
     <!-- 適切なURLを入力してください -->
     {!! Form::open(['url' => 'register']) !!}
-
     <!-- エラーメッセージ -->
-    if ($errors->any())
+    @if ($errors->any())
     <div>
         <ul>
             @foreach ($errors->all() as $error)
@@ -11,7 +10,6 @@
             @endforeach
         </ul>
     </div>
-
 
     <h2>新規ユーザー登録</h2>
 

@@ -5,7 +5,6 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,7 +18,7 @@ use Illuminate\Support\Facades\Auth;
 */
 
 require __DIR__ . '/auth.php';
-Auth::routes();
+
 
 //ログアウト中に表示されるページ
 
@@ -34,7 +33,3 @@ Route::get('search', [UsersController::class, 'index']);
 
 Route::get('follow-list', [PostsController::class, 'index']);
 Route::get('follower-list', [PostsController::class, 'index']);
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
