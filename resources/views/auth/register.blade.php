@@ -10,6 +10,7 @@
             @endforeach
         </ul>
     </div>
+    @endif
 
     <h2>新規ユーザー登録</h2>
 

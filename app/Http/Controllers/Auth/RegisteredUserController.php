@@ -37,6 +37,7 @@ class RegisteredUserController extends Controller
                 'username' => 'required|min:2|max:12',
                 'email' => 'required|email|min:5|max:40|unique:users',
                 'password' => 'required|alpha_num|min:8|max:20|confirmed',
+            ], [
                 //エラーメッセージ
                 'username.required' => 'ユーザーネームは必須です。',
                 'email.required' => 'メールは必須です。',
@@ -55,15 +56,16 @@ class RegisteredUserController extends Controller
             ]);
             //セッションに保存してリダイレクト
             // $request->session()->put('username', '登録が完了しました。');
-            return redirect()->route('added')->with('username', '登録が完了しました。');
+            return redirect()->route('added')->with('username', $username);
         }
-        return view('auth.register', compact('username', '登録に失敗しました。'));
+        return view('auth.register');
     }
 
     public function added(): View
     {
-        $username = session('username');
         //登録完了ページにデータを渡す
+        $username = session('username');
+        //セッションがからの場合registerに戻る
         if (!$username) {
             return redirect()->route('register');
         }

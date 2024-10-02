@@ -22,7 +22,7 @@ require __DIR__ . '/auth.php';
 
 //ログアウト中に表示されるページ
 
-Route::get('added', [RegisteredUserController::class, 'added']);
+Route::get('added', [RegisteredUserController::class, 'added'])->name('added');
 
 //ログイン中に表示されるページ
 Route::get('top', [PostsController::class, 'index'])->middleware('auth');
