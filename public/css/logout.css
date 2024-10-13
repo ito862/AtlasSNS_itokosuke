@@ -1,10 +1,175 @@
 @charset "UTF-8";
 
-html{
-    height: 100%;
+html {
+    height: 120%;
 }
 
-body{
+header {
+    padding-top: 45px;
+    color: #fff;
+
+}
+
+.header_container {
+    text-align: center;
+    margin: 0 auto;
+    padding-bottom: 30px;
+    /* background-color: #FEE32D; */
+}
+
+h1.logout_title img {
+    width: 180px;
+    height: auto;
+}
+
+.header_title {
+    width: auto;
+}
+
+.subtitle {
+    display: inline-block;
+    margin-top: -15px;
+    font-size: 40px;
+    font-weight: 1000;
+}
+
+body {
     height: 100%;
-    background: #186AC9;
+    /* background: #186AC9; */
+    background: linear-gradient(#2C8CE5, 65%, #FEE32D);
+}
+
+#container {
+    display: inline-block;
+    width: 350px;
+    height: auto;
+    align-items: center;
+    position: relative;
+    left: 50%;
+    transform: translate(-50%);
+    justify-content: center;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 15px;
+    /* opacity: 0.5; */
+
+}
+
+#clear {
+    display: block;
+    text-align: center;
+    width: auto;
+    color: #fff;
+    /* background-color: #FEE32D; */
+}
+
+.login_wrapper,
+.register_wrapper,
+.added_wrapper {
+    display: block;
+    padding-top: 10px;
+    margin: 15px;
+    color: #fff;
+    text-align: center;
+    /* background-color: #FEE32D; */
+
+}
+
+.login_title,
+.register_title {
+    font-size: 25px;
+}
+
+.added_name {
+    margin-top: 35px;
+    margin-bottom: 0;
+    color: #fff;
+    font-size: 23.5px;
+}
+
+.welcome_atlas {
+    font-size: 23.5px;
+    margin-bottom: 55px;
+}
+
+.compleat_text {
+    margin-bottom: 0;
+    font-size: 20px;
+}
+
+.back_link {
+    color: #fff;
+}
+
+/* form */
+
+.login_form,
+.register_form {
+    display: inline-block;
+    margin-top: -30px;
+    width: 300px;
+    height: 150px;
+    text-align: left;
+
+}
+
+.username_text,
+.email_text,
+.password_text {
+    appearance: none;
+    font-size: 16px;
+    font-weight: lighter;
+    padding-top: 25px;
+}
+
+.input {
+    appearance: none;
+    width: 300px;
+    height: 40px;
+    border: #000000, 0.3px;
+    border-radius: 5px;
+    color: #000000;
+    background-color: #fff;
+}
+
+.btn_login,
+.btn_register {
+    appearance: none;
+    display: block;
+    margin-left: auto;
+    margin-top: 25px;
+    width: 150px;
+    height: 50px;
+    border: 0.3px;
+    border-radius: 10px;
+    background-color: #ED3A50;
+    color: #fff;
+    font-size: 20px;
+}
+
+.btn_back {
+    margin-top: 30px;
+    margin-bottom: 50px;
+    width: 150px;
+    height: 50px;
+    border: 0.3px;
+    border-radius: 10px;
+    background-color: #ED3A50;
+    color: #fff;
+    font-size: 20px;
+}
+
+
+.register_link,
+.buck_login_link {
+    display: inline-block;
+    margin-top: 50px;
+    margin-bottom: 30px;
+    /* position: relative;
+    top: 60px; */
+    text-align: center;
+    font-size: 18px;
+    color: #fff;
+    font-weight: lighter;
+    text-decoration: underline;
+    text-decoration-color: #fff;
 }

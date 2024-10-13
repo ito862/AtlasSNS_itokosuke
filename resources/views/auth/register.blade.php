@@ -11,26 +11,26 @@
         </ul>
     </div>
     @endif
+    <div class="register_wrapper">
+        <h2 class="register_title">新規ユーザー登録</h2>
+        <ul class="register_form">
+            <li class="username_text">{{ Form::label('ユーザー名') }}</li>
+            <li>{{ Form::text('username',null,['class' => 'input']) }}</li>
 
-    <h2>新規ユーザー登録</h2>
+            <li class="email_text">{{ Form::label('メールアドレス') }}</li>
+            <li>{{ Form::email('email',null,['class' => 'input']) }}</li>
 
-    {{ Form::label('ユーザー名') }}
-    {{ Form::text('username',null,['class' => 'input']) }}
+            <li class="password_text">{{ Form::label('パスワード') }}</li>
+            <li>{{ Form::text('password',null,['class' => 'input']) }}</li>
 
-    {{ Form::label('メールアドレス') }}
-    {{ Form::email('email',null,['class' => 'input']) }}
+            <li class="password_text">{{ Form::label('パスワード確認') }}</li>
+            <li>{{ Form::text('password_confirmation',null,['class' => 'input']) }}</li>
 
-    {{ Form::label('パスワード') }}
-    {{ Form::text('password',null,['class' => 'input']) }}
+            {{ Form::submit('登録',['class'=>'btn_register']) }}
+        </ul>
 
-    {{ Form::label('パスワード確認') }}
-    {{ Form::text('password_confirmation',null,['class' => 'input']) }}
+        <p><a class="buck_login_link" href="login">ログイン画面へ戻る</a></p>
 
-    {{ Form::submit('登録') }}
-
-    <p><a href="login">ログイン画面へ戻る</a></p>
-
-    {!! Form::close() !!}
-
+        {!! Form::close() !!}
 
 </x-logout-layout>

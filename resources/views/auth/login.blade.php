@@ -2,18 +2,19 @@
 
   <!-- 適切なURLを入力してください -->
   {!! Form::open(['url' => 'login']) !!}
+  <div class=login_wrapper>
+    <p class="login_title">AtlasSNSへようこそ</p>
 
-  <p>AtlasSNSへようこそ</p>
+    <ul class="login_form">
+      <li class="email_text">{{ Form::label('メールアドレス') }}</li>
+      <li>{{ Form::text('email',null,['class' => 'input']) }}</li>
+      <li class="password_text">{{ Form::label('パスワード') }}</li>
+      <li>{{ Form::password('password',['class' => 'input']) }}</li>
+      {{ Form::submit('ログイン', ['class'=>'btn_login']) }}
+    </ul>
 
-  {{ Form::label('email') }}
-  {{ Form::text('email',null,['class' => 'input']) }}
-  {{ Form::label('password') }}
-  {{ Form::password('password',['class' => 'input']) }}
+    <a class="register_link" href="register">新規ユーザーの方はこちら</a>
 
-  {{ Form::submit('ログイン') }}
-
-  <p><a href="register">新規ユーザーの方はこちら</a></p>
-
-  {!! Form::close() !!}
-
+    {!! Form::close() !!}
+  </div>
 </x-logout-layout>

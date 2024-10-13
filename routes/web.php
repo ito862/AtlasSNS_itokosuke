@@ -25,11 +25,14 @@ require __DIR__ . '/auth.php';
 Route::get('added', [RegisteredUserController::class, 'added'])->name('added');
 
 //ログイン中に表示されるページ
-Route::get('top', [PostsController::class, 'index'])->middleware('auth');
+Route::middleware(['auth'])->group(function () {
 
-Route::get('profile', [ProfileController::class, 'profile']);
+  Route::get('top', [PostsController::class, 'index']);
 
-Route::get('search', [UsersController::class, 'index']);
+  Route::get('profile', [ProfileController::class, 'profile']);
 
-Route::get('follow-list', [PostsController::class, 'index']);
-Route::get('follower-list', [PostsController::class, 'index']);
+  Route::get('search', [UsersController::class, 'index']);
+
+  Route::get('follow-list', [PostsController::class, 'index']);
+  Route::get('follower-list', [PostsController::class, 'index']);
+});
