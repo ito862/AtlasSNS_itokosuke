@@ -24,6 +24,7 @@ class AuthenticatedSessionController extends Controller
     }
 
 
+
     //ログアウト
     public function logout(Request $request)
     {

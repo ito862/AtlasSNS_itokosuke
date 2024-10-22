@@ -4,7 +4,9 @@ use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\UsersController;
 use App\Http\Controllers\PostsController;
+use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\Auth\AuthenticatedSessionController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,6 +26,11 @@ require __DIR__ . '/auth.php';
 
 Route::get('added', [RegisteredUserController::class, 'added'])->name('added');
 
+// 認証が切れた時に移動する処理
+Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+
+
+
 //ログイン中に表示されるページ
 Route::middleware(['auth'])->group(function () {
 
@@ -31,7 +38,7 @@ Route::middleware(['auth'])->group(function () {
 
   Route::get('profile', [ProfileController::class, 'profile']);
 
-  Route::get('search', [UsersController::class, 'index']);
+  Route::get('search', [UsersController::class, 'search']);
 
   Route::get('follow-list', [PostsController::class, 'index']);
   Route::get('follower-list', [PostsController::class, 'index']);
