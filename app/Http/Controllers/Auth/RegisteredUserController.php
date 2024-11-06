@@ -65,7 +65,7 @@ class RegisteredUserController extends Controller
     {
         //登録完了ページにデータを渡す
         $username = session('username');
-        //セッションがからの場合registerに戻る
+        //セッションが空の場合registerに戻る
         if (!$username) {
             return redirect()->route('register');
         }

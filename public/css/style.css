@@ -22,7 +22,7 @@ header {
 }
 
 .sns_title img {
-    width: 155px;
+    width: 150px;
     height: auto;
 }
 
@@ -33,18 +33,16 @@ header {
 /* アコーディオンメニュー */
 
 #accordion {
-    display: block;
-    margin-left: auto;
-    margin-top: 35px;
-    font-size: 28px;
+    display: flex;
+    margin: 35px 0 0 auto;
+    font-size: 24px;
     height: auto;
     color: #fff;
 }
 
 .header_username {
-    margin-right: 60px;
+    margin: 0 60px 30px 0;
     padding-right: 10px;
-    margin-bottom: 30px;
 }
 
 .link_menu {
@@ -57,7 +55,7 @@ header {
 
 /* 矢印 */
 .menu_btn {
-    margin-top: 25px;
+    margin: 25px 90px 0 0;
     width: 60px;
     height: 60px;
     position: absolute;
@@ -83,8 +81,8 @@ header {
     width: 15px;
     height: 15px;
     transform: translate(-50%, -40%) rotate(135deg);
-    border-top: 1.5px solid #fff;
-    border-right: 1.5px solid #fff;
+    border-top: 2px solid #fff;
+    border-right: 2px solid #fff;
     transition: 0.3s ease;
 }
 
@@ -96,7 +94,7 @@ header {
 .accordion_menu {
     position: absolute;
     top: 60px;
-    width: 255px;
+    width: 324px;
     color: #000000;
     background-color: #F5F8FA;
     opacity: 0;
@@ -123,8 +121,7 @@ header {
     display: block;
     font-size: 18px;
     width: 100%;
-    padding-top: 40px;
-    padding-bottom: 40px;
+    padding: 40px 40px;
     color: #000000;
     text-decoration: none;
 }
@@ -145,6 +142,20 @@ header {
     pointer-events: all;
 }
 
+.my_icon {
+    display: block;
+    margin: -10px 20px 0 0;
+    background-color: #186AC9;
+    height: 40px;
+    border: none;
+    outline: none;
+}
+
+.my_icon img {
+    width: 60px;
+    height: 60px;
+}
+
 
 /* main content */
 #row {
@@ -159,4 +170,35 @@ header {
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
+    height: auto;
+}
+
+.btn {
+    background-color: #186AC9;
+    margin-bottom: 10px;
+}
+
+.btn a {
+    text-decoration: none;
+    color: #fff;
+}
+
+.btn_post {
+    width: 55px;
+    height: 55px;
+    margin: 0;
+    padding: 0;
+}
+
+.btn_post img {
+    width: 55px;
+    height: 55px;
+}
+
+.post_form {
+    width: 80%;
+    height: 200px;
+    background-color: #F5F8FA;
+    /* border: none;
+    outline: none; */
 }

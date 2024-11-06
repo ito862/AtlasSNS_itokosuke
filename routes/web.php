@@ -24,22 +24,21 @@ require __DIR__ . '/auth.php';
 
 //ログアウト中に表示されるページ
 
-Route::get('added', [RegisteredUserController::class, 'added'])->name('added');
+Route::get('/added', [RegisteredUserController::class, 'added'])->name('added');
 
-// 認証が切れた時に移動する処理
-Route::get('/login', [AuthenticatedSessionController::class, 'create'])->name('login');
-
+//ログアウト処理
+Route::post('/logout', [AuthenticatedSessionController::class, 'logout'])->name('logout');
 
 
 //ログイン中に表示されるページ
 Route::middleware(['auth'])->group(function () {
 
-  Route::get('top', [PostsController::class, 'index']);
+  Route::get('/top', [PostsController::class, 'index']);
 
-  Route::get('profile', [ProfileController::class, 'profile']);
+  Route::get('/profile', [ProfileController::class, 'profile']);
 
-  Route::get('search', [UsersController::class, 'search']);
+  Route::get('/search', [UsersController::class, 'search']);
 
-  Route::get('follow-list', [PostsController::class, 'index']);
-  Route::get('follower-list', [PostsController::class, 'index']);
+  Route::get('/follow-list', [PostsController::class, 'index']);
+  Route::get('/follower-list', [PostsController::class, 'index']);
 });
