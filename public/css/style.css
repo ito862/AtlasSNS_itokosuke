@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 html {
-    height: 100%;
+    height: 200%;
 }
 
 body {
@@ -22,7 +22,8 @@ header {
 }
 
 .sns_title img {
-    width: 150px;
+    margin-top: 5px;
+    width: 130px;
     height: auto;
 }
 
@@ -50,7 +51,6 @@ header {
     background-color: #fff;
     border: 1px #186AC9;
     border-bottom: 1px solid #F5F8FA;
-
 }
 
 /* 矢印 */
@@ -129,7 +129,7 @@ header {
 /* カーソルを乗せた時に色が変化する */
 .accordion_menu ul li a:hover {
     color: #fff;
-    background-color: #191970;
+    background-color: #02297E;
     transition: 0.3s ease;
 }
 
@@ -144,7 +144,7 @@ header {
 
 .my_icon {
     display: block;
-    margin: -10px 20px 0 0;
+    margin: -5px 20px 0 0;
     background-color: #186AC9;
     height: 40px;
     border: none;
@@ -152,9 +152,13 @@ header {
 }
 
 .my_icon img {
-    width: 60px;
-    height: 60px;
+    width: 50px;
+    height: 50px;
 }
+
+
+
+
 
 
 /* main content */
@@ -167,15 +171,25 @@ header {
     flex: 0 0 80%;
 }
 
+
+
+/* サイドバー */
 #side-bar {
     flex: 0 0 19%;
     border-left: 1px solid #727272;
     height: auto;
 }
 
+#confirm {
+    display: block;
+    border-bottom: 1px solid #CACBCC;
+    margin-bottom: 10px;
+    width: 105%;
+}
+
 .btn {
     background-color: #186AC9;
-    margin-bottom: 10px;
+    margin: 10px 10px;
 }
 
 .btn a {
@@ -183,11 +197,37 @@ header {
     color: #fff;
 }
 
+.btn_search {
+    display: block;
+    width: 150px;
+    margin-left: 20px;
+    text-align: center;
+    margin: auto;
+
+}
+
+
+/* 投稿 */
+.posts_container {
+    display: flex;
+    margin-top: 20px;
+    border-bottom: 5px solid #E0E0E0;
+}
+
+.post_form {
+    width: 70%;
+    height: 150px;
+    background-color: #F5F8FA;
+    border: none;
+    outline: none;
+}
+
 .btn_post {
     width: 55px;
     height: 55px;
-    margin: 0;
+    border: none;
     padding: 0;
+    margin: 0;
 }
 
 .btn_post img {
@@ -195,10 +235,104 @@ header {
     height: 55px;
 }
 
-.post_form {
-    width: 80%;
-    height: 200px;
-    background-color: #F5F8FA;
-    /* border: none;
-    outline: none; */
+input::placeholder {
+    font-size: 20px;
+    top: 0;
 }
+
+/* モーダル */
+/* .content {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+} */
+
+
+
+/* プロフィール更新 */
+.profile_container {
+    display: flex;
+}
+
+.profile_icon {
+    margin: 40px 0 0 260px;
+    width: 50px;
+    height: 50px;
+}
+
+.profile_icon img {
+    width: 50px;
+    height: 50px;
+}
+
+.update_form {
+    width: fit-content;
+    margin: 0 40px 0 30px;
+}
+
+.update_form li {
+    display: flex;
+    margin-top: 40px;
+    font-size: 18px;
+    font-weight: bolder;
+}
+
+.label {
+    display: inline-block;
+    width: 150px;
+    vertical-align: top;
+}
+
+.form-control {
+    width: 300px;
+}
+
+.file_up {
+    height: 100px;
+    border: 1px solid #9A9A9A;
+}
+
+.btn_update {
+    display: block;
+    width: 150px;
+    height: 35px;
+    font-size: 16px;
+    background-color: #ED3A50;
+    color: #fff;
+    text-decoration: none;
+    border: none;
+    border-radius: 6px;
+
+}
+
+/* 相手のプロフィール */
+
+/* ユーザー検索 */
+/* 検索結果 */
+
+/* フォーローリスト */
+/* フォロワーリスト */

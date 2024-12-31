@@ -7,6 +7,7 @@ use App\Http\Controllers\PostsController;
 use App\Http\Middleware\Authenticate;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\FollowsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,13 +33,29 @@ Route::post('/logout', [AuthenticatedSessionController::class, 'logout'])->name(
 
 //ログイン中に表示されるページ
 Route::middleware(['auth'])->group(function () {
-
+  //View
   Route::get('/top', [PostsController::class, 'index']);
 
   Route::get('/profile', [ProfileController::class, 'profile']);
 
-  Route::get('/search', [UsersController::class, 'search']);
+  Route::get('/search', [UsersController::class, 'userSearch']);
 
-  Route::get('/follow-list', [PostsController::class, 'index']);
-  Route::get('/follower-list', [PostsController::class, 'index']);
+  Route::get('/follow-list', [FollowsController::class, 'index']);
+
+  Route::get('/follower-list', [FollowsController::class, 'index']);
+
+
+
+  //投稿に関する機能
+  Route::get('/posts/{id}/delete', [PostsController::class, 'delete']);
+
+  Route::post('/posts/create', [PostsController::class, 'postsCreate']);
+
+  Route::post('posts/edit', [PostsController::class, 'postEdit']);
+
+  //プロフィール編集
+  Route::post('/profile', [ProfileController::class, 'profileUpdate']);
+
+  //ユーザー検索
+  Route::post('/search', [UsersController::class, 'search']);
 });

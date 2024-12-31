@@ -55,7 +55,6 @@ class RegisteredUserController extends Controller
                 'password' => Hash::make($password), //暗号化
             ]);
             //セッションに保存してリダイレクト
-            // $request->session()->put('username', '登録が完了しました。');
             return redirect()->route('added')->with('username', $username);
         }
         return view('auth.register');

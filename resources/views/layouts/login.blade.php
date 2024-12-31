@@ -47,7 +47,7 @@
         </div>
         <p class="btn"><a href="follower-List">フォロワーリスト</a></p>
       </div>
-      <p class="btn"><a href="search">ユーザー検索</a></p>
+      <p class="btn btn_search"><a href="search">ユーザー検索</a></p>
     </div>
   </div>
   <footer>
