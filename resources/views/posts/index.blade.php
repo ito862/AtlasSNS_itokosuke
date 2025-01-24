@@ -24,13 +24,13 @@
     <p>まだ投稿がありません。</p>
     @else
     <ul>
-      <!-- user_idはhiddenとこはユーザーのアイコンに変更予定 -->
       @foreach ($posts as $post)
-      <li>{{ $post->user_id }}</li>
+      <li>
+        <!-- アイコンに相手のプロフィールに飛ぶリンクを仕込む仮で/topになっている -->
+        <a class="icon" href="/top"><img src="{{ asset('storage/'.($post->user->icon_image)) }}"></a>
+      </li>
       <li>{{ $post->created_at }}</li>
       <li>{{ $post->post }}</li>
-      <!-- <li> <a class="btn_post" href="/posts/{{$post->id}}/edit"><img src="{{ asset('images/edit.png') }}" alt="編集">
-        </a> -->
       <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}"></a>
       </li>
       <li><a class="btn_post" href="/posts/{{$post->id}}/delete"><img src="{{ asset('images/trash.png') }}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか?')" alt="削除">

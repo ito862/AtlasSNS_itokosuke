@@ -6,13 +6,14 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
-use App\Models\Follow;
+use App\Models\User;
 
 class PostsController extends Controller
 {
     public function index()
     {
         $posts = Post::with('user')->get();
+        $users = User::get();
         return view('/posts/index', ['posts' => $posts]);
     }
 

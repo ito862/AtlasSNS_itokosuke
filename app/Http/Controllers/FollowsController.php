@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Models\User;
+use App\Models\Post;
 use App\Models\Follow;
 
 
@@ -15,10 +16,14 @@ class FollowsController extends Controller
     {
         // フォロー
         $following_id = Auth::user()->followings->pluck('id');
-
         $follows = User::whereIn('id', $following_id)->get();
 
-        return view('/follows/followList', ['follows' => $follows]);
+        $posts = Post::with('user')->get();
+
+        return view('/follows/followList', [
+            'follows' => $follows,
+            'posts' => $posts
+        ]);
     }
 
 
@@ -26,10 +31,14 @@ class FollowsController extends Controller
     {
         // フォロワー
         $followed_id = Auth::user()->followers->pluck('id');
-
         $followers = User::whereIn('id', $followed_id)->get();
 
-        return view('/follows/followerList', ['followers' => $followers]);
+        $posts = Post::with('user')->get();
+
+        return view('/follows/followerList', [
+            'followers' => $followers,
+            'posts' => $posts
+        ]);
     }
 
 
