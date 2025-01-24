@@ -25,6 +25,6 @@ class UsersController extends Controller
         } else {
             $users = User::all();
         }
-        return view('/users/search', ['users' => $users]);
+        return view('/users/search', ['users' => $users, 'keyword' => $keyword]);
     }
 }

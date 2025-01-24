@@ -45,6 +45,6 @@ class AuthenticatedSessionController extends Controller
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         // ログイン画面に戻る
-        return view('auth.login');
+        return redirect('/login');
     }
 }

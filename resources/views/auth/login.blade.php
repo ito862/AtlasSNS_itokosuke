@@ -1,5 +1,10 @@
 <x-logout-layout>
 
+  @if (session('success'))
+  <div class="alert alert-success">
+    {{ session('success') }}
+  </div>
+  @endif
   <!-- 適切なURLを入力してください -->
   {!! Form::open(['url' => 'login']) !!}
   <div class=login_wrapper>

@@ -8,16 +8,18 @@
                 </button>
                 <nav class="accordion_menu">
                     <ul>
-                        <li><a href="top">ホーム</a></li>
+                        <li><a href="top">HOME</a></li>
                         <li><a href="profile">プロフィール</a></li>
                         <!-- ログアウトのリンク -->
-                        <li><a href="#" id="logout-link">ログアウト</a></li>
+                        <li>
+                            <!-- 調子が悪いと普通に動かないJavaScriptが重いのか原因不明 -->
+                            <form action="{{ route('/logout') }}" method="POST">
+                                @csrf
+                                <a href="#" class="logout-button" onclick="event.preventDefault(); document.getElementById('myForm').submit();">ログアウト</a>
+                            </form>
+                        </li>
                     </ul>
                 </nav>
-                <button class=" my_icon"><a href="profile"><img src="{{ Auth::user()->image ?: asset('images/icon1.png') }}" alt="User Image"></a></button>
+                <button class="my_icon"><a href="profile"><img src="{{ asset('storage/'.(Auth::user()->icon_image)) }}" alt="User Image"></a></button>
             </div>
-            <!-- POST送信用のフォーム -->
-            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                @csrf
-            </form>
         </div>

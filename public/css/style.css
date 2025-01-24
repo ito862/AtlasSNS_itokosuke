@@ -36,6 +36,8 @@ header {
 #accordion {
     display: flex;
     margin: 35px 0 0 auto;
+    justify-content: space-between;
+    /* margin-top: 35px; */
     font-size: 24px;
     height: auto;
     color: #fff;
@@ -67,10 +69,10 @@ header {
 }
 
 .inn {
+    display: block;
     position: relative;
     width: 100%;
     height: 100%;
-    display: block;
 }
 
 .menu_btn .inn::before {
@@ -94,7 +96,7 @@ header {
 .accordion_menu {
     position: absolute;
     top: 60px;
-    width: 324px;
+    width: auto;
     color: #000000;
     background-color: #F5F8FA;
     opacity: 0;
@@ -110,8 +112,9 @@ header {
 
 
 .accordion_menu ul li {
-    border-top: 1px solid #191970;
+    border: 1px solid #191970;
     display: flex;
+    width: 250px;
     text-align: center;
     color: #000000;
     justify-content: center;
@@ -119,11 +122,24 @@ header {
 
 .accordion_menu ul li a {
     display: block;
-    font-size: 18px;
+    font-size: 24px;
     width: 100%;
     padding: 40px 40px;
     color: #000000;
     text-decoration: none;
+}
+
+/* ログアウトボタン */
+.logout-button {
+    display: flex;
+    background: none;
+    border: none;
+    color: #000000;
+    cursor: pointer;
+    text-decoration: none;
+    font-size: 24px;
+    width: 100%;
+    padding: 40px 40px;
 }
 
 /* カーソルを乗せた時に色が変化する */
@@ -133,7 +149,12 @@ header {
     transition: 0.3s ease;
 }
 
+.logout-button:hover {
+    color: #fff;
+    background-color: #02297E;
+    transition: 0.3s ease;
 
+}
 
 .accordion_menu.is_open {
     margin-top: 50px;
@@ -146,7 +167,7 @@ header {
     display: block;
     margin: -5px 20px 0 0;
     background-color: #186AC9;
-    height: 40px;
+    height: 50px;
     border: none;
     outline: none;
 }
@@ -155,8 +176,6 @@ header {
     width: 50px;
     height: 50px;
 }
-
-
 
 
 
@@ -170,6 +189,7 @@ header {
 #container {
     flex: 0 0 80%;
 }
+
 
 
 
@@ -208,31 +228,43 @@ header {
 
 
 /* 投稿 */
+.icon {
+    width: 50px;
+    height: 50px;
+}
+
+.icon img {
+    width: 50px;
+    height: 50px;
+}
+
 .posts_container {
     display: flex;
     margin-top: 20px;
+    padding-left: 10px;
     border-bottom: 5px solid #E0E0E0;
 }
 
 .post_form {
     width: 70%;
     height: 150px;
+    padding-left: 10px;
     background-color: #F5F8FA;
     border: none;
     outline: none;
 }
 
 .btn_post {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
     border: none;
     padding: 0;
     margin: 0;
 }
 
 .btn_post img {
-    width: 55px;
-    height: 55px;
+    width: 50px;
+    height: 50px;
 }
 
 input::placeholder {
@@ -240,8 +272,12 @@ input::placeholder {
     top: 0;
 }
 
-/* モーダル */
-/* .content {
+
+
+
+/* 投稿編集モーダル */
+
+.content {
     margin: 0 auto;
     padding: 40px;
 }
@@ -269,7 +305,37 @@ input::placeholder {
     top: 50%;
     transform: translate(-50%, -50%);
     width: 60%;
-} */
+    border-radius: 20px;
+}
+
+.modal_post {
+    height: 100px;
+    width: 100%;
+}
+
+.js-modal-open {
+    height: 50px;
+    width: 50px;
+}
+
+.js-modal-open img {
+    height: 50px;
+    width: 50px;
+}
+
+.edit_btn {
+    text-align: center;
+    background: none;
+    border: none;
+    padding: 0;
+}
+
+.edit_btn img {
+    width: 50px;
+    height: 50px;
+}
+
+
 
 
 
@@ -329,10 +395,38 @@ input::placeholder {
 
 }
 
+/* 検索結果 */
+.list {
+    display: block;
+}
+
+.list li {
+    display: inline-block;
+    padding: 10px 0 0 10px;
+}
+
+.search_icon {
+    background: none;
+    border: none;
+    height: 50px;
+    width: 50px;
+}
+
+.search_icon img {
+    height: 50px;
+    width: 50px;
+}
+
+.icon img {
+    height: 50px;
+    width: 50px;
+}
+
+
+
 /* 相手のプロフィール */
 
 /* ユーザー検索 */
-/* 検索結果 */
 
 /* フォーローリスト */
 /* フォロワーリスト */

@@ -27,8 +27,7 @@ require __DIR__ . '/auth.php';
 
 Route::get('/added', [RegisteredUserController::class, 'added'])->name('added');
 
-//ログアウト処理
-Route::post('/logout', [AuthenticatedSessionController::class, 'logout'])->name('logout');
+
 
 
 //ログイン中に表示されるページ
@@ -40,9 +39,10 @@ Route::middleware(['auth'])->group(function () {
 
   Route::get('/search', [UsersController::class, 'userSearch']);
 
-  Route::get('/follow-list', [FollowsController::class, 'index']);
-
-  Route::get('/follower-list', [FollowsController::class, 'index']);
+  // フォローリスト
+  Route::get('/followList', [FollowsController::class, 'followList']);
+  // フォロワーリスト
+  Route::get('/followerList', [FollowsController::class, 'followerList']);
 
 
 
@@ -51,11 +51,15 @@ Route::middleware(['auth'])->group(function () {
 
   Route::post('/posts/create', [PostsController::class, 'postsCreate']);
 
-  Route::post('posts/edit', [PostsController::class, 'postEdit']);
+  Route::post('/posts/edit', [PostsController::class, 'postEdit']);
 
   //プロフィール編集
-  Route::post('/profile', [ProfileController::class, 'profileUpdate']);
+  Route::post('/profile/update', [ProfileController::class, 'profileUpdate']);
 
   //ユーザー検索
   Route::post('/search', [UsersController::class, 'search']);
+  Route::post('/follow', [FollowsController::class, 'follow']);
+
+  //ログアウト処理
+  Route::post('/logout', [AuthenticatedSessionController::class, 'logout'])->name('/logout');
 });

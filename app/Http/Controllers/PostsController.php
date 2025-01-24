@@ -6,6 +6,7 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 use App\Models\Post;
+use App\Models\Follow;
 
 class PostsController extends Controller
 {
@@ -16,7 +17,7 @@ class PostsController extends Controller
     }
 
     //投稿登録
-    public function postsCreate(Request $request): RedirectResponse
+    public function postsCreate(Request $request)
     {
         // バリデーション
         $rules = [
@@ -38,7 +39,7 @@ class PostsController extends Controller
     public function postEdit(Request $request)
     {
         $id = $request->input('id');
-        $edit_post = $request->input('post');
+        $edit_post = $request->input('post_edit');
 
         post::Where('id', $id)->update([
             'post' => $edit_post

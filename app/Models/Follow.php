@@ -10,11 +10,6 @@ class Follow extends Model
     use HasFactory;
     protected $fillable = [
         'following_id',
-        'followed_id'
+        'followed_id',
     ];
-
-    public function Follow()
-    {
-        return $this->belongsToMany(Follow::class);
-    }
 }

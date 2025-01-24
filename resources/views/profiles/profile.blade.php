@@ -1,14 +1,21 @@
 <x-login-layout>
-  {!! Form::open(['url' => 'profile']) !!}
+  {!! Form::open(['url' => 'profile/update','enctype' => 'multipart/form-data']) !!}
+  @csrf
+  @method('post')
 
   <div class="profile_container">
-    @if(session('message'))
-    <div>
-      {{ session('message') }}
+    @if ($errors->any())
+    <div class="alert alert-danger">
+      <ul>
+        @foreach ($errors->all() as $error)
+        <li>{{$error}}</li>
+        @endforeach
+      </ul>
     </div>
     @endif
     <div class="profile_icon">
-      <img src="{{ Auth::user()->image ?: asset('images/icon1.png') }}" alt="User Image">
+      <!-- なぜか特定の画像しか表示できない -->
+      <img src="{{ asset('storage/'.(Auth::user()->icon_image)) }}" alt="User Image">
     </div>
     <ul class="update_form">
       {{ form::hidden('id', Auth::user()->id) }}
@@ -24,12 +31,12 @@
 
 
       <li>{{ Form::label('パスワード')}}
-        {{ Form::text('newpassword',null,['class' => 'form-control']) }}
+        {{ Form::password('newpassword',null,['class' => 'form-control']) }}
       </li>
 
 
       <li>{{ Form::label('パスワード確認')}}
-        {{ Form::text('password_confirmation',null,['class' => 'form-control']) }}
+        {{ Form::password('password_confirmation',null,['class' => 'form-control']) }}
       </li>
 
 
@@ -39,15 +46,13 @@
 
       <li>{{ Form::label('アイコン画像')}}
         <div class="file_up">
-          {{ Form::file('images',['enctype' => 'multipart/form-data', 'accept' => 'images/※','class' => 'file_btn']) }}
+          {{ Form::file('images',['accept' => 'images/※','class' => 'file_up']) }}
         </div>
       </li>
 
       <li class="btn_box">{{ Form::submit('更新',['class'=>'btn_update']) }}</li>
 
     </ul>
-
-
     {{ Form::close() }}
   </div>
 </x-login-layout>
