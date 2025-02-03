@@ -14,7 +14,6 @@
     </div>
     @endif
     <div class="profile_icon">
-      <!-- なぜか特定の画像しか表示できない -->
       <img src="{{ asset('storage/'.(Auth::user()->icon_image)) }}" alt="User Image">
     </div>
     <ul class="update_form">
@@ -24,11 +23,9 @@
         {{ Form::text('username',Auth::user()->username,['class' => 'form-control']) }}
       </li>
 
-
       <li>{{ Form::label('メールアドレス')}}
         {{ Form::email('email',Auth::user()->email,['class' => 'form-control']) }}
       </li>
-
 
       <li>{{ Form::label('パスワード')}}
         {{ Form::password('newpassword',null,['class' => 'form-control']) }}
@@ -38,7 +35,6 @@
       <li>{{ Form::label('パスワード確認')}}
         {{ Form::password('password_confirmation',null,['class' => 'form-control']) }}
       </li>
-
 
       <li>{{ Form::label('自己紹介')}}
         {{ Form::text('bio',Auth::user()->bio?: '',['class' => 'form-control']) }}

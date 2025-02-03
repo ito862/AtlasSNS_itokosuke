@@ -3,33 +3,31 @@
   {!! Form::open(['url' => 'search']) !!}
   @csrf
   @method('post')
-  <div>
-    <h1>ユーザー検索ページ！</h1>
+  <div class="search_container">
     {{ Form::text('keyword',$keyword ?? '',['class' => 'from','placeholder' => 'ユーザー名','class' => 'search_form']) }}
     {{ Form::close() }}
     <button type="submit" class="search_icon"><img src="images/search.png"></button>
   </div>
-  <!-- foreachを使って表示？ -->
+
   @foreach ($users as $user)
   <ul class="list">
     <li>
-      <!-- アイコンに相手のプロフィールに飛ぶリンクを仕込む仮で/topになっている -->
-      <a class="icon" href="/top"><img src="{{ asset('storage/'.($user->icon_image)) }}"></a>
+      <a class="icon" href="/profiles/{{$user->id}}/otherProfile"><img src="{{ asset('storage/'.($user->icon_image)) }}"></a>
     </li>
     <li>{{ $user->username }}</li>
-    <li> <!-- ifを使ってボタンの表示切り替え /IDを取得する？-->
+    <li>
       {!! Form::open(['url' => '/follow', 'method' => 'POST']) !!}
       @csrf
       @method('POST')
-      <!-- ここでif -->
-      <!-- フォローしていなければ表示 -->
+      @if(Auth::user()->followings->contains($user->id))
+      <!-- フォロー中なら「フォロー解除」ボタンを表示 -->
       <input type="hidden" name="id" value="{{$user->id}}">
-      {{ Form::submit('フォローする',['class'=>'btn_follow']) }}
-
-      <!-- ここでelse -->
-      <!-- フォローしていれば表示 -->
+      {{ Form::submit('フォロー解除', ['class' => 'btn_unfollow']) }}
+      @else
+      <!-- フォローしていなければ「フォローする」ボタンを表示 -->
       <input type="hidden" name="id" value="{{$user->id}}">
-      {{ Form::submit('フォロー解除',['class'=>'btn_unfollow']) }}
+      {{ Form::submit('フォローする', ['class' => 'btn_follow']) }}
+      @endif
       {!! Form::close() !!}
     </li>
     @endforeach

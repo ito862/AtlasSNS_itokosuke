@@ -2,14 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\ProfileUpdateRequest;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\Redirect;
 use Illuminate\View\View;
 use Illuminate\Support\Facades\Hash;
 use App\Models\User;
+use App\Models\Post;
 
 class ProfileController extends Controller
 {
@@ -18,17 +17,25 @@ class ProfileController extends Controller
         return view('profiles.profile');
     }
 
-
-    public function profileFrom($id) //IDの取得
+    // 他ユーザーのプロフィール移動(多分ID受け取って何やかんやする)
+    public function otherProfile($id)
     {
-        $users = User::where('id', $id)->first();
-        return view('profile.profile', ['users' => $users]);
+        // 受け取ったIDを参照にUserとpostを取得
+        $profiles = User::where('id', $id)->first();
+        $posts = Post::with('user')->where('user_id', $id)->get();
+
+        return view(
+            '/profiles/otherProfile',
+            [
+                'profiles' => $profiles,
+                'posts' => $posts
+            ]
+        );
     }
 
     //プロフィール編集
     public function profileUpdate(Request $request): RedirectResponse
     {
-
         // バリデーションルール
         $rules = [
             'username' => 'required|min:2|max:12',
@@ -40,7 +47,6 @@ class ProfileController extends Controller
         ];
         // //引数の値がバリデートされればリダイレクト、されなければ処理を継続
         $this->validate($request, $rules);
-
 
         $id = $request->input('id');
         $username = $request->input('username');
@@ -56,7 +62,7 @@ class ProfileController extends Controller
             // 画像の新規入力が空なら現状の維持
             $filename = Auth::user()->icon_image;
         }
-
+        // 更新の処理
         User::where('id', $id)->update([
             'username' => $username,
             'email' => $email,

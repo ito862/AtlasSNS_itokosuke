@@ -19,27 +19,29 @@
   </div>
   @endif
   <!-- 投稿一覧表示 -->
-  <table class="post">
-    @if($posts->isEmpty())
-    <p>まだ投稿がありません。</p>
-    @else
-    <ul>
-      @foreach ($posts as $post)
-      <li>
-        <!-- アイコンに相手のプロフィールに飛ぶリンクを仕込む仮で/topになっている -->
-        <a class="icon" href="/top"><img src="{{ asset('storage/'.($post->user->icon_image)) }}"></a>
-      </li>
-      <li>{{ $post->created_at }}</li>
-      <li>{{ $post->post }}</li>
+  @if($posts->isEmpty())
+  <p>まだ投稿がありません。</p>
+  @else
+  @foreach ($posts as $post)
+  <!-- アイコンに相手のプロフィールに飛ぶリンクを仕込む仮で/topになっている -->
+  <ul class="posts_timeline">
+    <li>
+      <a class="icon" href="/profiles/{{$post->user->id}}/otherProfile"><img src="{{ asset('storage/'.($post->user->icon_image)) }}"></a>
+    </li>
+    <li>{{ $post->user->username }}</li>
+    <li>{{ $post->created_at }}</li>
+    <li>{{ $post->post }}</li>
+    <!-- ログインしてるユーザー以外なら非表示 -->
+    <li>
       <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}"></a>
-      </li>
-      <li><a class="btn_post" href="/posts/{{$post->id}}/delete"><img src="{{ asset('images/trash.png') }}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか?')" alt="削除">
-        </a>
-      </li>
-    </ul>
-    @endforeach
-    @endif
-  </table>
+    </li>
+    <li>
+      <a class="btn_post" href="/posts/{{$post->id}}/delete"><img src="{{ asset('images/trash.png') }}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか?')" alt="削除">
+      </a>
+    </li>
+  </ul>
+  @endforeach
+  @endif
 
   <!-- モーダルの中身 -->
   <div class="modal js-modal">

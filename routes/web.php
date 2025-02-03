@@ -32,10 +32,15 @@ Route::get('/added', [RegisteredUserController::class, 'added'])->name('added');
 
 //ログイン中に表示されるページ
 Route::middleware(['auth'])->group(function () {
+  //ログアウト処理
+  Route::get('/logout', [AuthenticatedSessionController::class, 'logout'])->name('/logout');
+
   //View
   Route::get('/top', [PostsController::class, 'index']);
-
+  // 自分のプロフィール
   Route::get('/profile', [ProfileController::class, 'profile']);
+  // 他ユーザーのプロフィール
+  Route::get('/profiles/{id}/otherProfile', [ProfileController::class, 'otherProfile']);
 
   Route::get('/search', [UsersController::class, 'userSearch']);
 
@@ -59,7 +64,4 @@ Route::middleware(['auth'])->group(function () {
   //ユーザー検索
   Route::post('/search', [UsersController::class, 'search']);
   Route::post('/follow', [FollowsController::class, 'follow']);
-
-  //ログアウト処理
-  Route::post('/logout', [AuthenticatedSessionController::class, 'logout'])->name('/logout');
 });

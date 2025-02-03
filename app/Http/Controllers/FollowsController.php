@@ -14,31 +14,24 @@ class FollowsController extends Controller
 
     public function followList()
     {
-        // フォロー
+        // フォローしている人のID取得
         $following_id = Auth::user()->followings->pluck('id');
-        $follows = User::whereIn('id', $following_id)->get();
+        // 取得したIDをもとにポストを取得
+        $followUsers = User::whereIn('id', $following_id)->get();
+        $posts = Post::with('user')->whereIn('id', $following_id)->get();
 
-        $posts = Post::with('user')->get();
-
-        return view('/follows/followList', [
-            'follows' => $follows,
-            'posts' => $posts
-        ]);
+        return view('/follows/followList', compact('followUsers', 'posts'));
     }
 
 
     public function followerList()
     {
-        // フォロワー
+        // フォロワー上とほぼ同じ
         $followed_id = Auth::user()->followers->pluck('id');
-        $followers = User::whereIn('id', $followed_id)->get();
+        $followedUsers = User::whereIn('id', $followed_id)->get();
+        $posts = Post::with('user')->whereIn('id', $followed_id)->get();
 
-        $posts = Post::with('user')->get();
-
-        return view('/follows/followerList', [
-            'followers' => $followers,
-            'posts' => $posts
-        ]);
+        return view('/follows/followerList', compact('followedUsers', 'posts'));
     }
 
 
@@ -63,6 +56,8 @@ class FollowsController extends Controller
                 'followed_id' => $followed_id,
             ]);
         }
-        return redirect('/search');
+
+        // リダイレクト先のURLを取得したbladeにする。デフォルトは/search
+        return redirect($request->input('redirect_to', '/search'));
     }
 }

@@ -37,7 +37,6 @@ header {
     display: flex;
     margin: 35px 0 0 auto;
     justify-content: space-between;
-    /* margin-top: 35px; */
     font-size: 24px;
     height: auto;
     color: #fff;
@@ -175,6 +174,7 @@ header {
 .my_icon img {
     width: 50px;
     height: 50px;
+    border-radius: 100%;
 }
 
 
@@ -227,6 +227,8 @@ header {
 }
 
 
+
+
 /* 投稿 */
 .icon {
     width: 50px;
@@ -242,7 +244,7 @@ header {
     display: flex;
     margin-top: 20px;
     padding-left: 10px;
-    border-bottom: 5px solid #E0E0E0;
+    border-bottom: 10px solid #E0E0E0;
 }
 
 .post_form {
@@ -253,6 +255,17 @@ header {
     border: none;
     outline: none;
 }
+
+/* 投稿一覧 */
+.posts_timeline {
+    display: flex;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.posts_timeline li {
+    margin: 10px 0 10px 10px;
+}
+
 
 .btn_post {
     width: 50px;
@@ -353,6 +366,7 @@ input::placeholder {
 .profile_icon img {
     width: 50px;
     height: 50px;
+    border-radius: 100%;
 }
 
 .update_form {
@@ -420,13 +434,64 @@ input::placeholder {
 .icon img {
     height: 50px;
     width: 50px;
+    border-radius: 100%;
 }
 
 
 
 /* 相手のプロフィール */
+.otherUser {
+    display: flex;
+    border-bottom: 10px solid #E0E0E0;
+    margin-top: 10px;
+}
+
 
 /* ユーザー検索 */
+.btn_follow {
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    background: #186AC9;
+    border: none;
+    color: #F5F8FA;
+}
 
-/* フォーローリスト */
-/* フォロワーリスト */
+.btn_unfollow {
+    height: 40px;
+    width: 120px;
+    border-radius: 10px;
+    background: #FF4309;
+    border: none;
+    color: #F5F8FA;
+}
+
+
+
+
+/* フォーローリスト/フォロワーリスト */
+.icon_show {
+    display: flex;
+    border-bottom: 10px solid #E0E0E0;
+}
+
+.follow_icon {
+    width: 50px;
+    height: 50px;
+    margin: 10px 0 10px 10px;
+}
+
+.follow_icon img {
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+}
+
+.follows_list {
+    display: flex;
+    border-bottom: 2px solid #E0E0E0;
+}
+
+.follows_list li {
+    margin: 10px 0 10px 10px;
+}

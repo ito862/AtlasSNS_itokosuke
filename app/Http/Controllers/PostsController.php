@@ -13,7 +13,6 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Post::with('user')->get();
-        $users = User::get();
         return view('/posts/index', ['posts' => $posts]);
     }
 
