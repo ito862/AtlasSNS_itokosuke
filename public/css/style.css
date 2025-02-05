@@ -200,6 +200,20 @@ header {
     height: auto;
 }
 
+.login_username {
+    margin: 30px 0 10px 20px;
+    font-size: 18px;
+}
+
+.count {
+    display: flex;
+}
+
+.count p {
+    margin-left: 30px;
+    font-size: 18px;
+}
+
 #confirm {
     display: block;
     border-bottom: 1px solid #CACBCC;
@@ -207,9 +221,17 @@ header {
     width: 105%;
 }
 
+#confirm p {
+    display: block;
+
+}
+
 .btn {
+    display: block;
+    width: 140px;
     background-color: #186AC9;
-    margin: 10px 10px;
+    border-radius: 8px;
+    margin: 0 0 20px 120px;
 }
 
 .btn a {
@@ -441,11 +463,15 @@ input::placeholder {
 
 /* 相手のプロフィール */
 .otherUser {
-    display: flex;
+    display: block;
     border-bottom: 10px solid #E0E0E0;
     margin-top: 10px;
 }
 
+.otherUser li {
+    display: inline-block;
+    margin: 10px 0 30px 10px;
+}
 
 /* ユーザー検索 */
 .btn_follow {

@@ -32,6 +32,7 @@
     <li>{{ $post->created_at }}</li>
     <li>{{ $post->post }}</li>
     <!-- ログインしてるユーザー以外なら非表示 -->
+    @if(Auth::id() === $post->user->id)
     <li>
       <a class="js-modal-open" href="" post="{{ $post->post }}" post_id="{{ $post->id }}"><img src="{{ asset('images/edit.png') }}"></a>
     </li>
@@ -39,6 +40,7 @@
       <a class="btn_post" href="/posts/{{$post->id}}/delete"><img src="{{ asset('images/trash.png') }}" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか?')" alt="削除">
       </a>
     </li>
+    @endif
   </ul>
   @endforeach
   @endif
