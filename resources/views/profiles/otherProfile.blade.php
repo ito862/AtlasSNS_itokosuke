@@ -31,7 +31,7 @@
   <p>まだ投稿がありません。</p>
   @else
   @foreach ($posts as $post)
-  <ul class="posts_timeline">
+  <ul class="posts_view">
     <li>
       <a class="icon" href="/profiles/{{$post->user->id}}/otherProfile"><img src="{{ asset('storage/'.($post->user->icon_image)) }}"></a>
     </li>

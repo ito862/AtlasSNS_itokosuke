@@ -41,9 +41,7 @@
       </li>
 
       <li>{{ Form::label('アイコン画像')}}
-        <div class="file_up">
-          {{ Form::file('images',['accept' => 'images/※','class' => 'file_up']) }}
-        </div>
+        {{ Form::file('images',['accept' => 'images/※','class' => 'file_up']) }}
       </li>
 
       <li class="btn_box">{{ Form::submit('更新',['class'=>'btn_update']) }}</li>
