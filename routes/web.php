@@ -27,8 +27,10 @@ require __DIR__ . '/auth.php';
 
 Route::get('/added', [RegisteredUserController::class, 'added'])->name('added');
 
-
-
+// 認証切れた際にログインページに飛ぶ
+Route::get('/login', function () {
+  return view('/auth/login');
+})->name('login');
 
 //ログイン中に表示されるページ
 Route::middleware(['auth'])->group(function () {

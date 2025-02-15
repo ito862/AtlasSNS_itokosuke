@@ -3,8 +3,12 @@
     <li>
       <div class="icon"><img src="{{ asset('storage/' . optional($profiles)->icon_image) }}"></div>
     </li>
-    <li>{{ optional($profiles)->username }}</li>
-    <li>{{ optional($profiles)->bio }}</li>
+    <li>
+      <P>ユーザー名</P> {{ optional($profiles)->username }}
+    </li>
+    <li>
+      <p>自己紹介</p> {{ optional($profiles)->bio }}
+    </li>
     <li>
       {!! Form::open(['url' => '/follow', 'method' => 'POST']) !!}
       @csrf

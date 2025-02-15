@@ -31,8 +31,9 @@ header {
     padding: 20px;
 }
 
-/* アコーディオンメニュー */
 
+
+/* アコーディオンメニュー */
 #accordion {
     display: flex;
     margin: 35px 0 0 auto;
@@ -320,6 +321,7 @@ header {
     top: 20%;
     padding-left: 73px;
     width: 600px;
+    font-size: 16px;
 }
 
 /* ボタン */
@@ -353,11 +355,7 @@ input::placeholder {
     top: 0;
 }
 
-
-
-
 /* 投稿編集モーダル */
-
 .content {
     margin: 0 auto;
     padding: 40px;
@@ -418,8 +416,6 @@ input::placeholder {
     width: 60px;
     height: 60px;
 }
-
-
 
 
 
@@ -486,20 +482,64 @@ input::placeholder {
     text-decoration: none;
     border: none;
     border-radius: 6px;
-
 }
+
+
+/* 相手のプロフィール */
+.otherUser {
+    display: flex;
+    border-bottom: 10px solid #E0E0E0;
+    margin-top: 10px;
+    position: relative;
+}
+
+.otherUser li {
+    display: flex;
+    margin: 30px 0 30px 100px;
+    min-height: 110px;
+}
+
+.otherUser li p {
+    margin-right: 60px;
+    min-width: 120px;
+}
+
+.otherUser li:nth-child(2) {
+    display: flex;
+    position: absolute;
+    left: 80px;
+    font-size: 22px;
+}
+
+.otherUser li:nth-child(3) {
+    display: flex;
+    position: absolute;
+    top: 35%;
+    left: 80px;
+    font-size: 22px;
+}
+
+.otherUser li:nth-child(4) {
+    position: absolute;
+    right: 8px;
+    top: 50%;
+}
+
+
+
 
 /* 検索結果 */
 .search_container {
+    display: flex;
     border-bottom: 10px solid #E0E0E0;
-    padding: 40px 0 40px 40px;
-
+    padding: 40px 0 40px 60px;
 }
 
 .searchWrapper {
     position: relative;
     left: 30%;
     width: 70%;
+    color: #636B6F;
 }
 
 .search_form {
@@ -508,7 +548,11 @@ input::placeholder {
     border: 1px solid #767676;
     border-radius: 3px;
     font-weight: 300;
-    color: #E0E0E0;
+}
+
+.searchWord {
+    margin-left: 250px;
+    font-size: 28px;
 }
 
 .search_icon {
@@ -567,23 +611,6 @@ input::placeholder {
     color: #F5F8FA;
     font-size: 16px;
 }
-
-
-/* 相手のプロフィール */
-.otherUser {
-    display: block;
-    border-bottom: 10px solid #E0E0E0;
-    margin-top: 10px;
-}
-
-.otherUser li {
-    display: inline-block;
-    margin: 10px 0 30px 10px;
-}
-
-
-
-
 
 /* フォーローリスト/フォロワーリスト */
 .iconContainer {

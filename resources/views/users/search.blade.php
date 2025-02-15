@@ -7,7 +7,9 @@
     {{ Form::text('keyword',$keyword ?? '',['class' => 'from','placeholder' => 'ユーザー名','class' => 'search_form']) }}
     {{ Form::close() }}
     <button type="submit" class="search_icon"><img src="images/search.png"></button>
+    <p class="searchWord">検索ワード: <strong>{{ request('keyword') }}</strong></p>
   </div>
+
   <div class="searchWrapper">
     @foreach ($users as $user)
     <ul class="showList">
