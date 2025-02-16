@@ -453,8 +453,6 @@ input::placeholder {
     display: inline-block;
     width: 150px;
     vertical-align: top;
-    text-align: right;
-    padding-right: 10px;
 }
 
 .form-control {
@@ -464,12 +462,14 @@ input::placeholder {
     border-radius: 3px;
 }
 
-.file_up {
-    height: 100px;
+.file_up::file-selector-button {
+    width: 375px;
+    height: 120px;
+    border: 1px solid #767676;
     background: #FFFFFF;
-    border: 1px solid #9A9A9A;
-    color: #FFFFFF;
+    color: #CACBCC;
 }
+
 
 
 .btn_update {
