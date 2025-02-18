@@ -292,7 +292,7 @@ header {
 /* 投稿一覧 */
 .posts_view {
     display: flex;
-    height: 180px;
+    min-height: 180px;
     padding-left: 100px;
     border-bottom: 2px solid #E0E0E0;
     position: relative;
@@ -304,8 +304,11 @@ header {
 
 /* 名前 */
 .posts_view li:nth-child(2) {
+    position: relative;
+    top: 2px;
     font-size: 20px;
     padding-left: 5px;
+    min-width: 180px;
 }
 
 /* 作成日 */
@@ -317,10 +320,8 @@ header {
 
 /* 投稿内容 */
 .posts_view li:nth-child(4) {
-    position: absolute;
-    top: 20%;
-    padding-left: 73px;
-    width: 600px;
+    width: 750px;
+    margin: 40px 0 30px -175px;
     font-size: 16px;
 }
 
