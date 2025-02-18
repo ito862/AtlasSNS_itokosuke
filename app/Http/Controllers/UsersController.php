@@ -12,7 +12,7 @@ class UsersController extends Controller
 {
     public function userSearch(): View
     {
-        // ログインしてるユーザー以外を取得
+        // ログインしてるユーザーを除外して取得
         $users = User::where('id', '!=', Auth::id())->get();
         return view('/users/search', ['users' => $users]);
     }
@@ -21,11 +21,13 @@ class UsersController extends Controller
     public function search(Request $request)
     {
         $keyword = $request->input('keyword');
+        // ログインしているユーザーを除外
+        $query = User::where('id', '!=', Auth::id());
 
         if (!empty($keyword)) {
-            $users = User::where('username', 'like', '%' . $keyword . '%')->get();
+            $users = $query->where('username', 'like', '%' . $keyword . '%')->get();
         } else {
-            $users = User::all();
+            $users = $query->get();
         }
         return view('/users/search', ['users' => $users, 'keyword' => $keyword]);
     }

@@ -653,3 +653,20 @@ input::placeholder {
 .follows_list li {
     margin: 10px 0 10px 10px;
 }
+
+/* エラーメッセージ */
+.error-container {
+    border: 1px solid red;
+    padding: 10px;
+    background-color: #ffe6e6;
+    color: red;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 200px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
+}

@@ -2,17 +2,16 @@
   {!! Form::open(['url' => 'profile/update','enctype' => 'multipart/form-data']) !!}
   @csrf
   @method('post')
-
+  @if ($errors->any())
+  <div class="error-container">
+    <ul>
+      @foreach ($errors->all() as $error)
+      <li class="error-message">{{ $error }}</li>
+      @endforeach
+    </ul>
+  </div>
+  @endif
   <div class="profile_container">
-    @if ($errors->any())
-    <div class="alert alert-danger">
-      <ul>
-        @foreach ($errors->all() as $error)
-        <li>{{$error}}</li>
-        @endforeach
-      </ul>
-    </div>
-    @endif
     <div class="profile_icon">
       <img src="{{ asset('storage/'.(Auth::user()->icon_image)) }}" alt="User Image">
     </div>

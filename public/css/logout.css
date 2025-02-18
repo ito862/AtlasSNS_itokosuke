@@ -12,9 +12,7 @@ header {
 
 .header_container {
     text-align: center;
-    margin: 0 auto;
-    /* padding-bottom: 30px; */
-    /* background-color: #FEE32D; */
+    margin-top: -30px;
 }
 
 h1.logout_title img {
@@ -49,8 +47,6 @@ body {
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.3);
     border-radius: 15px;
-    /* opacity: 0.5; */
-
 }
 
 #clear {
@@ -58,24 +54,24 @@ body {
     text-align: center;
     width: auto;
     color: #fff;
-    /* background-color: #FEE32D; */
 }
 
 .login_wrapper,
 .register_wrapper,
 .added_wrapper {
     display: block;
-    padding-top: 10px;
-    margin: 15px;
+    margin: 25px 15px 15px 15px;
     color: #fff;
     text-align: center;
-    /* background-color: #FEE32D; */
+
 
 }
 
 .login_title,
 .register_title {
     font-size: 25px;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
 }
 
 .added_name {
@@ -107,7 +103,7 @@ body {
     width: 300px;
     height: 150px;
     text-align: left;
-
+    padding-top: 5px;
 }
 
 .username_text,
@@ -116,13 +112,13 @@ body {
     appearance: none;
     font-size: 16px;
     font-weight: lighter;
-    padding-top: 25px;
+    margin-top: 5px;
 }
 
 .input {
     appearance: none;
     width: 300px;
-    height: 40px;
+    height: 35px;
     border: #000000, 0.3px;
     border-radius: 5px;
     color: #000000;
@@ -158,12 +154,28 @@ body {
 .register_link,
 .buck_login_link {
     display: inline-block;
-    margin: 50px 0 30px 0;
-    top: 60px;
+    margin: 40px 0 10px 0;
     text-align: center;
     font-size: 18px;
     color: #fff;
     font-weight: lighter;
     text-decoration: underline;
     text-decoration-color: #fff;
+}
+
+/* エラーメッセージ */
+.error-container {
+    border: 1px solid red;
+    padding: 10px;
+    background-color: #ffe6e6;
+    color: red;
+    margin-bottom: 10px;
+    width: 100%;
+    height: 100px;
+}
+
+.error-message {
+    color: red;
+    font-size: 14px;
+    margin-top: 5px;
 }

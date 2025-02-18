@@ -25,7 +25,13 @@
   @foreach ($posts as $post)
   <ul class="posts_view">
     <li>
+      @if(Auth::id() === $post->user->id)
+      <!-- 自分の投稿なら自分のプロフィールへ -->
+      <a class="icon" href="/profile"><img src="{{ asset('storage/'.($post->user->icon_image)) }}"></a>
+      @else
+      <!-- 他のユーザーのプロフィールへ -->
       <a class="icon" href="/profiles/{{$post->user->id}}/otherProfile"><img src="{{ asset('storage/'.($post->user->icon_image)) }}"></a>
+      @endif
     </li>
     <li>{{ $post->user->username }}</li>
     <li>{{ $post->created_at }}</li>

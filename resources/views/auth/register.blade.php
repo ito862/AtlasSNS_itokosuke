@@ -3,10 +3,10 @@
     {!! Form::open(['url' => 'register']) !!}
     <!-- エラーメッセージ -->
     @if ($errors->any())
-    <div>
+    <div class="error-container">
         <ul>
             @foreach ($errors->all() as $error)
-            <li>{{ $error }}</li>
+            <li class="error-message">{{ $error }}</li>
             @endforeach
         </ul>
     </div>

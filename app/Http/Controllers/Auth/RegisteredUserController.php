@@ -33,16 +33,18 @@ class RegisteredUserController extends Controller
     {
         if ($request->isMethod('post')) {
             //バリデーション
-            $request->validate([
+            $rules = [
                 'username' => 'required|min:2|max:12',
                 'email' => 'required|email|min:5|max:40|unique:users',
                 'password' => 'required|alpha_num|min:8|max:20|confirmed',
-            ], [
+            ];
+            $messages = [
                 //エラーメッセージ
                 'username.required' => 'ユーザーネームは必須です。',
                 'email.required' => 'メールは必須です。',
                 'password.required' => 'パスワードは必須です。',
-            ]);
+            ];
+            $this->validate($request, $rules, $messages);
             $username = $request->input('username');
             $email = $request->input('email');
             $password = $request->input('password');
