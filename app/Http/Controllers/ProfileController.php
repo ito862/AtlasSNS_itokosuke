@@ -41,7 +41,7 @@ class ProfileController extends Controller
             'username' => 'required|min:2|max:12',
             // 現在のユーザーのメールアドレスは許可される
             'email' => 'required|email|min:5|max:40|unique:users,email,' . Auth::id(),
-            'password' => 'alpha_num|min:8|max:20|confirmed',
+            'password' => 'nullable|alpha_num|min:8|max:20|confirmed',
             'bio' => 'nullable|string|max:150',
             'icon_image' => 'nullable|image|mimes:jpeg, png, bmp, gif, svg'
         ];
@@ -70,9 +70,9 @@ class ProfileController extends Controller
         $bio = $request->input('bio');
 
         // 画像の登録処理
-        if ($request->hasFile('images')) {
-            $filename = $request->images->getClientOriginalName();
-            $image = $request->images->storeAs('public', $filename);
+        if ($request->hasFile('icon_image')) {
+            $filename = $request->icon_image->getClientOriginalName();
+            $image = $request->icon_image->storeAs('public', $filename);
         } else {
             // 画像の新規入力が空なら現状の維持
             $filename = Auth::user()->icon_image;
@@ -85,6 +85,6 @@ class ProfileController extends Controller
             'bio' => $bio,
             'icon_image' => $filename,
         ]);
-        return redirect('/profile');
+        return redirect('/top');
     }
 }

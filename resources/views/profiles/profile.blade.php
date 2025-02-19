@@ -27,9 +27,8 @@
       </li>
 
       <li>{{ Form::label('パスワード')}}
-        {{ Form::password('newpassword',null,['class' => 'form-control']) }}
+        {{ Form::password('password',null,['class' => 'form-control']) }}
       </li>
-
 
       <li>{{ Form::label('パスワード確認')}}
         {{ Form::password('password_confirmation',null,['class' => 'form-control']) }}
@@ -40,7 +39,7 @@
       </li>
 
       <li>{{ Form::label('アイコン画像')}}
-        {{ Form::file('images',['accept' => 'images/※','class' => 'file_up']) }}
+        {{ Form::file('icon_image',['accept' => 'images/※','class' => 'file_up']) }}
       </li>
 
       <li class="btn_box">{{ Form::submit('更新',['class'=>'btn_update']) }}</li>
