@@ -17,7 +17,7 @@ class ProfileController extends Controller
         return view('profiles.profile');
     }
 
-    // 他ユーザーのプロフィール移動(多分ID受け取って何やかんやする)
+    // 他ユーザーのプロフィール移動
     public function otherProfile($id)
     {
         // 受け取ったIDを参照にUserとpostを取得
@@ -46,19 +46,19 @@ class ProfileController extends Controller
             'icon_image' => 'nullable|image|mimes:jpeg, png, bmp, gif, svg'
         ];
         $messages = [
-            'username.required' => 'ユーザー名を入力してください。',
-            'username.min' => 'ユーザー名は2文字以上で入力してください。',
-            'username.max' => 'ユーザー名は12文字以内で入力してください。',
-            'email.required' => 'メールアドレスを入力してください。',
-            'email.email' => '有効なメールアドレスを入力してください。',
-            'email.unique' => 'このメールアドレスはすでに使用されています。',
-            'password.alpha_num' => 'パスワードは英数字のみ使用できます。',
-            'password.min' => 'パスワードは8文字以上で入力してください。',
-            'password.max' => 'パスワードは20文字以内で入力してください。',
-            'password.confirmed' => 'パスワードが一致しません。',
-            'bio.max' => '自己紹介は150文字以内で入力してください。',
-            'icon_image.image' => 'アイコン画像は画像ファイルを選択してください。',
-            'icon_image.mimes' => 'アイコン画像はJPEG, PNG, BMP, GIF, SVG のいずれかの形式でアップロードしてください。',
+            'username.required' => 'ユーザー名を入力してください',
+            'username.min' => 'ユーザー名は2文字以上で入力してください',
+            'username.max' => 'ユーザー名は12文字以内で入力してください',
+            'email.required' => 'メールアドレスを入力してください',
+            'email.email' => '有効なメールアドレスを入力してください',
+            'email.unique' => 'このメールアドレスはすでに使用されています',
+            'password.alpha_num' => 'パスワードは英数字のみ使用できます',
+            'password.min' => 'パスワードは8文字以上で入力してください',
+            'password.max' => 'パスワードは20文字以内で入力してください',
+            'password.confirmed' => 'パスワードが一致しません',
+            'bio.max' => '自己紹介は150文字以内で入力してください',
+            'icon_image.image' => 'アイコン画像は画像ファイルを選択してください',
+            'icon_image.mimes' => 'アイコン画像はJPEG, PNG, BMP, GIF, SVG のいずれかの形式でアップロードしてください',
         ];
         // //引数の値がバリデートされればリダイレクト、されなければ処理を継続
         $this->validate($request, $rules, $messages);

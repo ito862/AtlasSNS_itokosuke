@@ -4,15 +4,9 @@ namespace App\Http\Controllers\Auth;
 
 use App\Http\Controllers\Controller;
 use App\Models\User;
-use App\Providers\RouteServiceProvider;
-use Illuminate\Auth\Events\Registered;
-use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
-use Illuminate\Validation\Rules;
 use Illuminate\View\View;
-use Illuminate\Support\Facades\Session;
 
 
 class RegisteredUserController extends Controller
@@ -29,7 +23,7 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request): RedirectResponse
+    public function store(Request $request)
     {
         if ($request->isMethod('post')) {
             //バリデーション
@@ -40,9 +34,18 @@ class RegisteredUserController extends Controller
             ];
             $messages = [
                 //エラーメッセージ
-                'username.required' => 'ユーザーネームは必須です。',
-                'email.required' => 'メールは必須です。',
-                'password.required' => 'パスワードは必須です。',
+                'username.required' => 'ユーザーネームは必須です',
+                'username.min' => '２文字以上入力してください',
+                'username.max' => '12文字以内で入力してください',
+                'email.required' => 'メールは必須です',
+                'email.min' => '５文字以上入力してください',
+                'email.max' => '40文字以上で入力してください',
+                'email.unique' => 'このメールアドレスはすでに使われています',
+                'password.required' => 'パスワードは必須です',
+                'password.alpha_num' => 'パスワードは英数字のみ使用できます。',
+                'password.min' => 'パスワードは8文字以上で入力してください',
+                'password.max' => 'パスワードは20文字以内で入力してください',
+                'password.confirmed' => 'パスワードが一致しません',
             ];
             $this->validate($request, $rules, $messages);
             $username = $request->input('username');
@@ -62,7 +65,7 @@ class RegisteredUserController extends Controller
         return view('auth.register');
     }
 
-    public function added(): View
+    public function added()
     {
         //登録完了ページにデータを渡す
         $username = session('username');
