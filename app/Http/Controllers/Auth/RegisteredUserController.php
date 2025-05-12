@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\View\View;
+use App\Http\Requests\Auth\RegisterRequest;
 
 
 class RegisteredUserController extends Controller
@@ -23,36 +24,12 @@ class RegisteredUserController extends Controller
      *
      * @throws \Illuminate\Validation\ValidationException
      */
-    public function store(Request $request)
+    public function store(RegisterRequest $request)
     {
         if ($request->isMethod('post')) {
-            //バリデーション
-            $rules = [
-                'username' => 'required|min:2|max:12',
-                'email' => 'required|email|min:5|max:40|unique:users',
-                'password' => 'required|alpha_num|min:8|max:20|confirmed',
-            ];
-            $messages = [
-                //エラーメッセージ
-                'username.required' => 'ユーザーネームは必須です',
-                'username.min' => '２文字以上入力してください',
-                'username.max' => '12文字以内で入力してください',
-                'email.required' => 'メールは必須です',
-                'email.min' => '５文字以上入力してください',
-                'email.max' => '40文字以上で入力してください',
-                'email.unique' => 'このメールアドレスはすでに使われています',
-                'password.required' => 'パスワードは必須です',
-                'password.alpha_num' => 'パスワードは英数字のみ使用できます。',
-                'password.min' => 'パスワードは8文字以上で入力してください',
-                'password.max' => 'パスワードは20文字以内で入力してください',
-                'password.confirmed' => 'パスワードが一致しません',
-            ];
-            $this->validate($request, $rules, $messages);
-            $username = $request->input('username');
-            $email = $request->input('email');
-            $password = $request->input('password');
-
-
+            $username = $request->username;
+            $email = $request->email;
+            $password = $request->password;
             //ユーザー登録
             User::create([
                 'username' => $username,
@@ -62,6 +39,7 @@ class RegisteredUserController extends Controller
             //セッションに保存してリダイレクト
             return redirect()->route('added')->with('username', $username);
         }
+        // POST送信じゃない場合/registerを表示する
         return view('auth.register');
     }
 

@@ -2,9 +2,8 @@
 
 namespace App\Http\Requests;
 
-use App\Models\User;
 use Illuminate\Foundation\Http\FormRequest;
-use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Auth;
 
 class ProfileUpdateRequest extends FormRequest
 {
@@ -16,14 +15,17 @@ class ProfileUpdateRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'name' => ['string', 'max:255'],
-            'email' => ['email', 'max:255', Rule::unique(User::class)->ignore($this->user()->id)],
+            'username' => 'required|min:2|max:12',
+            'email' => 'required|email|min:5|max:40|unique:users,email,' . Auth::id(),
+            'password' => 'nullable|alpha_num|min:8|max:20|confirmed',
+            'bio' => 'nullable|string|max:150',
+            'icon_image' => 'nullable|image|mimes:jpeg, png, bmp, gif, svg'
         ];
     }
 
     public function messages()
     {
-        [
+        return [
             'username.required' => 'ユーザー名を入力してください',
             'username.min' => 'ユーザー名は2文字以上で入力してください',
             'username.max' => 'ユーザー名は12文字以内で入力してください',
